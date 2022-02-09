@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="com.springcore.Student" name="Student1">
+        <!-- using setter injection. this will be done using the property tag-->
+        <property name="studentId">
+            <value>22344</value>
+        </property>
+        <property name="studentName">
+            <!-- This makes the code independent like values can be changed here easily without changing anything
+        in student class
+        <value>Priya</value> -->
+            <value>John</value> <!--Now the value will be updated without changing a single line in student class.-->
+        </property>
+        <property name="studentAddress">
+            <value>Delhi</value>
+        </property>
+
+    </bean>
+    <!--Using value as an attribute.-->
+    <bean class="com.springcore.Student" name="Student2">
+        <property name="studentId" value="12344"/>
+        <property name="studentName" value="Ajay"/>
+        <property name="studentAddress" value="Ujjain"/>
+    </bean>
+
+    <!--Using p schema -->
+   <!-- <bean class="com.springcore.Student" name="Student3" p:studentId="24566" >
+
+    </bean> -->
+
+</beans>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+  http://www.springframework.org/schema/util
+  http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--standalone list-->
+<util:list list-class="java.util.LinkedList" id="myFriends">
+    <value> Amam</value>
+        <value>Ankit</value>
+        <value>Ashutosh</value>
+    </util:list>
+    <!--standalone map-->
+    <util:map map-class="java.util.HashMap" id="myMap">
+        <entry key="Spring" value="8000"></entry>
+        <entry key="Java" value="5000"></entry>
+        <entry key="Django" value="5600"> </entry>
+    </util:map>
+
+    <!--standalone props-->
+    <util:properties id="dbConfig">
+        <prop key="Driver"> com.sql.jdbc.Driver</prop>
+        <prop key="userName">Priya</prop>
+        <prop key="pass">somepass</prop>
+        <prop key="sal">some salutation</prop>
+
+    </util:properties>
+
+    <bean class="com.springcore.standalone.collections.Person" name="person1">
+    <!--<property name="friends">
+        <ref bean="myFriends"/>
+</property> using ref as a property-->
+        <property name="friends" ref="myFriends"/>
+        <property name="fees" ref="myMap"/>
+        <property name="props" ref="dbConfig"/>
+</bean>
+
+
+</beans>

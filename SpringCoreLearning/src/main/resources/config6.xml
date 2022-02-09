@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Address bean-->
+    <bean class="com.springcore.auto.wire.Address" name="address">
+    <property name="street" value="Temp street"/>
+<property name="city" value="Delhi"/>
+</bean>
+    <!--Emp bean-->
+    <!-- by default is no means the autowiring is not enabled-->
+    <!-- using xml:- byName, byType and constructor-->
+    <bean class="com.springcore.auto.wire.Emp" name="emp1" autowire="byName"/>
+    <!-- variable name address as the name of property in Address class is address .If address does not exists we get null-->
+<!-- using byType-->
+    <bean class="com.springcore.auto.wire.Emp" name="emp2" autowire="byType"/>
+    <!--Type of property present in emp will be checked-->
+    <!-- problem with byType is that if there are multiple beans of same type the container will get confused which bean
+    inject and hence an exception will be thrown-->
+    <!-- by name and bytype use setter injection to set value-->
+<!-- using constructor-->
+    <!-- paramaterized constructor will be called-->
+    <bean class="com.springcore.auto.wire.Emp" name="emp3" autowire="constructor"/>
+</beans>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- implementing life cycle methdods using xml-->
+    <!--there are 3 ways of implementing life cycle methods namely :- init and destroy
+     1) using xml configration
+     2) using annotations
+     3) using interface
+     -->
+<!--enabling only those2 annotations-->
+    <!-- using property injection-->
+    <bean class="com.springcore.lifecycle.S1" name="s1" init-method="hey" destroy-method="bye">
+        <property name="price" value="16"/>
+</bean>
+
+    <!-- declaring S2 . in this class the lifecycle methods will be implemented using interface-->
+
+<bean class="com.springcore.lifecycle.S2" name="s2">
+    <property name="price" value="10"/>
+</bean>
+
+    <!-- using anotations-->
+    <bean class="com.springcore.lifecycle.S3" name="s3">
+        <property name="subject" value="Maths"/>
+    </bean>
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"> </bean>
+</beans>

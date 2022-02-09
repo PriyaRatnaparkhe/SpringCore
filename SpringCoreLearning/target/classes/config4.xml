@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- this value can also be used as an attribute of property or using c schema-->
+    <!--using value as a tag-->
+    <!-- c schema is left-->
+    <bean class="com.springcore.ci.Certi" name="certi">
+        <constructor-arg value="Java"/>
+    </bean>
+   <bean class="com.springcore.ci.Person" name="person">
+       <constructor-arg>
+           <value>Priya</value>
+       </constructor-arg>
+       <!--This is using value as an attribute-->
+       <constructor-arg value="1234"/>
+       <constructor-arg >
+           <ref bean="certi"></ref>
+       </constructor-arg>
+   </bean>
+    <bean class="com.springcore.ci.Person" name="person2">
+        <constructor-arg value="Priya"/>
+        <constructor-arg value="133" type="int"/>
+        <constructor-arg ref="certi"/>
+        <!--in this we have specified the type of value we are passing. in this case the
+         constructor with first parameter as string and second parameter as int will get called -->
+    </bean>
+    <!-- generating object of certi and injecting property value through constructor-->
+
+<!-- constructor injection using ref type-->
+    <bean class="com.springcore.ci.Person" name="person3">
+        <constructor-arg value="Ashish"/>
+        <constructor-arg value="33"/>
+        <constructor-arg ref="certi"/>
+    </bean>
+
+    <!--Addition class-->
+    <!-- we want to specify that the constructor whose type is integer should get executed type is used to resolve
+    ambiguity-->
+    <bean class="com.springcore.ci.Addition" name="add">
+        <constructor-arg value="12" type="int"/>
+        <constructor-arg value="34" type="int"/>
+    </bean>
+
+    <!--changing the order of argument. means i want that 12 should be recieved in 2 nd parameter. indexing starts from 0-->
+<bean class="com.springcore.ci.Addition" name="add1">
+    <constructor-arg value="23" type="int" index="1"/>
+    <constructor-arg value="23" type="int" index="0"/>
+
+</bean>
+</beans>

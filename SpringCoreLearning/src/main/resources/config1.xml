@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="com.springcore.collections.Emp" name="emp1">
+<property name="name" value="priya"/>
+        <property name="phones">
+            <list>
+                <value>1234</value>
+                <value>2345</value>
+                <value>3455</value>
+                <value>455445</value>
+                <null/> <!--for adding null values.-->
+            </list>
+        </property>
+        <property name="address">
+            <set>
+                <value>Delhi</value>
+                <value>Mumbai</value>
+                <value>Ujjain</value>
+            </set>
+        </property>
+        <property name="courses">
+            <map>
+                <entry key="Java" value="2 month"/>
+                <entry key="Python" value="2 months"/>
+                <entry key="C" value="1 month"/>
+            </map>
+        </property>
+    </bean>
+
+    <!--If our collection has only one value , we need not to define the collection. put in property directly-->
+    <bean class="com.springcore.collections.Emp"  name="emp2">
+<property name="name" value="Dinesh"></property>
+        <!-- For creating blank list
+        <property name="phones">
+        <list>
+        </list>
+        </property>
+        -->
+        <property name="phones" >
+            <value>1234</value>
+        </property>
+        <property name="address" value="Delhi"/>
+        <property name="courses">
+            <map>
+                <entry key="Java" value="1 month"/>
+            </map>
+        </property>
+
+    </bean>
+
+</beans>
